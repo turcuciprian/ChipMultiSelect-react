@@ -6,13 +6,14 @@ interface MultiSelectProps {
     title: string
     optionsList: string[]
     className?: string
-    onItemChange?: (index:number) => void
+    onItemChange?: (index: number) => void
 }
 const ChipMultiSelect = ({ title, optionsList, className, onItemChange }: MultiSelectProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const onClickedItem = (indexClicked: number) => {
         console.log('clicked', indexClicked)
-        onItemChange(indexClicked)
+        if (onItemChange)
+            onItemChange(indexClicked)
     }
     return (
         // center vertically and horizontally
